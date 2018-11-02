@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic spec should create the same component 1`] = `
+<App>
+  <Component>
+    <SetNumber>
+      <div>
+        <span>
+          123
+        </span>
+      </div>
+    </SetNumber>
+  </Component>
+</App>
+`;
