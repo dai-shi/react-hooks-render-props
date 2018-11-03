@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-interface IProps {
-  children: (v: number) => React.ReactNode;
-}
+type Props = {
+  children: (v: number) => React.ReactNode,
+};
 
-const Counter: React.SFC<IProps> = ({ children }) => {
+const Counter: React.SFC<Props> = ({ children }) => {
   const [value, update] = React.useState(0);
   return (
     <div>

@@ -5,7 +5,7 @@ import { useRenderProps, wrap } from '../../src/index';
 import Counter from './Counter';
 
 const DisplayNumber = wrap(() => {
-  const [value] = useRenderProps(Counter);
+  const [value] = useRenderProps<{}, number>(Counter);
   return (
     <div>
       Number:

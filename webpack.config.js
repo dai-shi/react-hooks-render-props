@@ -21,7 +21,7 @@ module.exports = {
     }],
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx'],
   },
   devServer: {
     port: process.env.PORT || '8080',
