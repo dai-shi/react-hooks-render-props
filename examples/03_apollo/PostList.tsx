@@ -1,7 +1,8 @@
 import * as React from 'react';
 
+import { DocumentNode } from 'graphql';
 import graphqlTag from 'graphql-tag';
-import { Query, QueryProps, QueryResult } from 'react-apollo';
+import { OperationVariables, Query, QueryResult } from 'react-apollo';
 
 import { useRenderProps, wrap } from '../../src/index';
 
@@ -25,11 +26,12 @@ type Data = {
 
 class QueryPosts extends Query<Data> {}
 
-type Result = QueryResult<Data>;
+type Result = QueryResult<Data, OperationVariables>;
 
 const useApolloQuery = (query: string): Result => {
-  const [result] = useRenderProps<{}, Result>(QueryPosts, { query });
-  const fallbackResult = { loading: true }; // XXX this is dirty
+  // @ts-ignore: FIXME not assignable
+  const [result] = useRenderProps<{ query: DocumentNode }, Result>(QueryPosts, { query });
+  const fallbackResult = { loading: true }; // XXX this is a limitation.
   return result || fallbackResult;
 };
 

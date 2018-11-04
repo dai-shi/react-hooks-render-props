@@ -1,7 +1,9 @@
 import * as React from 'react';
 
 import graphqlTag from 'graphql-tag';
-import { Mutation } from 'react-apollo';
+import { Mutation, MutationFn, MutationResult } from 'react-apollo';
+
+import { useRenderProps, wrap } from '../../src/index';
 
 type Props = {
   add: (text: string) => void,
@@ -31,17 +33,20 @@ mutation addPost($text: String!) {
 }
 `;
 
-const NewPost = () => (
-  <Mutation mutation={ADD_POST} refetchQueries={['queryPosts']}>
-    {(addPost) => {
-      const add = (text: string) => {
-        addPost({ variables: { text } });
-      };
-      return (
-        <TextInput add={add} />
-      );
-    }}
-  </Mutation>
-);
+const useApolloMutation = (props: {}): [MutationFn, MutationResult] => {
+  // @ts-ignore: FIXME not assignable
+  const results = useRenderProps<{}, MutationResult>(Mutation, props);
+  return results;
+};
+
+const NewPost = wrap(() => {
+  const [addPost] = useApolloMutation({ mutation: ADD_POST, refetchQueries: ['queryPosts'] });
+  const add = (text: string) => {
+    addPost({ variables: { text } });
+  };
+  return (
+    <TextInput add={add} />
+  );
+});
 
 export default NewPost;
