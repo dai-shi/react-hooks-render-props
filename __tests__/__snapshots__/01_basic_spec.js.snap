@@ -13,3 +13,17 @@ exports[`basic spec should create the same component 1`] = `
   </Component>
 </App>
 `;
+
+exports[`basic spec should create the same component 2`] = `
+<_App>
+  <Component>
+    <SetNumber>
+      <div>
+        <span>
+          123
+        </span>
+      </div>
+    </SetNumber>
+  </Component>
+</_App>
+`;

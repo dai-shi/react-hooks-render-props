@@ -23,7 +23,7 @@ describe('basic spec', () => {
     );
     let wrapper1;
     let wrapper2;
-    (() => {
+    {
       const Component = () => (
         <SetNumber>
           {value => <span>{value}</span>}
@@ -33,8 +33,8 @@ describe('basic spec', () => {
         <Component />
       );
       wrapper1 = mount(<App />);
-    })();
-    (() => {
+    }
+    {
       const Component = wrap(() => {
         const [value] = useRenderProps(SetNumber);
         return (
@@ -45,8 +45,9 @@ describe('basic spec', () => {
         <Component />
       );
       wrapper2 = mount(<App />);
-    })();
+    }
     expect(wrapper2.html()).toEqual(wrapper1.html());
+    expect(toJson(wrapper1)).toMatchSnapshot();
     expect(toJson(wrapper2)).toMatchSnapshot();
   });
 });
