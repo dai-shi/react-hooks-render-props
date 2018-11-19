@@ -4,7 +4,7 @@ import { DocumentNode } from 'graphql';
 import graphqlTag from 'graphql-tag';
 import { OperationVariables, Query, QueryResult } from 'react-apollo';
 
-import { useRenderProps, wrap } from '../../src/index';
+import { useRenderProps, wrap } from 'react-hooks-render-props';
 
 const QUERY_POSTS = graphqlTag`
 query queryPosts {

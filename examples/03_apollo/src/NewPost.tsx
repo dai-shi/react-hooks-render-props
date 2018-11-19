@@ -3,7 +3,7 @@ import * as React from 'react';
 import graphqlTag from 'graphql-tag';
 import { Mutation, MutationFn, MutationResult } from 'react-apollo';
 
-import { useRenderProps, wrap } from '../../src/index';
+import { useRenderProps, wrap } from 'react-hooks-render-props';
 
 type Props = {
   add: (text: string) => void,

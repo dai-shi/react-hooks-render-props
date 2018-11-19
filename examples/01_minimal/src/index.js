@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
-import { useRenderProps, wrap } from '../../src/index';
+import { useRenderProps, wrap } from 'react-hooks-render-props';
 
 const RandomNumber = ({ name, children }) => {
   const [counter, setCounter] = useState(1);

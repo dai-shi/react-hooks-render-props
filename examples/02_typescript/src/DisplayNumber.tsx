@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useRenderProps, wrap } from '../../src/index';
+import { useRenderProps, wrap } from 'react-hooks-render-props';
 
 import Counter from './Counter';
 

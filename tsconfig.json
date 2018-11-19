@@ -4,6 +4,10 @@
     "lib": ["es2015", "esnext.asynciterable", "dom"],
     "jsx": "react",
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "baseUrl": ".",
+    "paths": {
+      "react-hooks-render-props": ["."]
+    }
   }
 }
