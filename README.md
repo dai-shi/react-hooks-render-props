@@ -50,7 +50,7 @@ const NumberWithCustomHook = wrap(() => {
 const App = () => (
   <div>
     <NumberWithRenderProps />
-    <NumberWIthCustomHook />
+    <NumberWithCustomHook />
   </div>
 );
 ```
