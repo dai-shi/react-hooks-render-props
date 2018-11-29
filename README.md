@@ -3,7 +3,7 @@ react-hooks-render-props
 
 [![Build Status](https://travis-ci.com/dai-shi/react-hooks-render-props.svg?branch=master)](https://travis-ci.com/dai-shi/react-hooks-render-props)
 [![npm version](https://badge.fury.io/js/react-hooks-render-props.svg)](https://badge.fury.io/js/react-hooks-render-props)
-![bundle size](https://badgen.net/bundlephobia/minzip/react-hooks-render-props)
+[![bundle size](https://badgen.net/bundlephobia/minzip/react-hooks-render-props)](https://bundlephobia.com/result?p=react-hooks-render-props)
 
 Hacky custom hook to emulate render props by Hooks API
 
