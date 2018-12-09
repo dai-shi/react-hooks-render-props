@@ -64,7 +64,6 @@
     "react": "^16.7.0-alpha.2",
     "react-apollo": "^2.2.4",
     "react-dom": "^16.7.0-alpha.2",
-    "react-use": "^3.1.0",
     "ts-loader": "^5.2.2",
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.11.0",
