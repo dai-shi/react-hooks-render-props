@@ -5,7 +5,7 @@ react-hooks-render-props
 [![npm version](https://badge.fury.io/js/react-hooks-render-props.svg)](https://badge.fury.io/js/react-hooks-render-props)
 [![bundle size](https://badgen.net/bundlephobia/minzip/react-hooks-render-props)](https://bundlephobia.com/result?p=react-hooks-render-props)
 
-Hacky custom hook to emulate render props by Hooks API
+Hacky custom hook to emulate render props with Hooks API
 
 Background
 ----------
