@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 type Props = {
-  children: (v: number) => React.ReactNode,
+  children: (v: number) => React.ReactNode;
 };
 
 const Counter: React.SFC<Props> = ({ children }) => {

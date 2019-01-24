@@ -6,7 +6,7 @@ import { Mutation, MutationFn, MutationResult } from 'react-apollo';
 import { useRenderProps, wrap } from 'react-hooks-render-props';
 
 type Props = {
-  add: (text: string) => void,
+  add: (text: string) => void;
 };
 
 const TextInput: React.SFC<Props> = ({ add }) => {
@@ -18,11 +18,11 @@ const TextInput: React.SFC<Props> = ({ add }) => {
   };
   return (
     <form onSubmit={onSubmit}>
-    <input
-      placeholder="Enter text..."
-      onChange={event => setText(event.target.value)}
-      value={text}
-    />
+      <input
+        placeholder="Enter text..."
+        onChange={event => setText(event.target.value)}
+        value={text}
+      />
     </form>
   );
 };

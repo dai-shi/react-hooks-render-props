@@ -16,12 +16,12 @@ query queryPosts {
 `;
 
 type DataItem = {
-  text: string,
-  id: number,
+  text: string;
+  id: number;
 };
 
 type Data = {
-  posts: DataItem[],
+  posts: DataItem[];
 };
 
 class QueryPosts extends Query<Data> {}
@@ -38,7 +38,14 @@ const useApolloQuery = (query: string): Result => {
 const PostList: React.SFC = wrap(() => {
   const { loading, error, data } = useApolloQuery(QUERY_POSTS);
   if (loading) return <span>Loading...</span>;
-  if (error) return <span>Error: {error}</span>;
+  if (error) {
+    return (
+      <span>
+        Error:
+        {error}
+      </span>
+    );
+  }
   if (!data) return <span>No Data</span>;
   return (
     <ul>

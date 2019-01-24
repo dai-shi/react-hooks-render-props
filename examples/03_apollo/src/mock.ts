@@ -24,8 +24,7 @@ const posts = [{
 
 const mocks = {
   Mutation: () => ({
-    addPost: (_root: unknown, { text }: { text: string }) =>
-      posts.push({ text, id: Date.now() }),
+    addPost: (_root: unknown, { text }: { text: string }) => posts.push({ text, id: Date.now() }),
   }),
   Query: () => ({
     posts: () => posts,
