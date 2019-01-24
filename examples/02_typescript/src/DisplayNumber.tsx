@@ -6,12 +6,7 @@ import Counter from './Counter';
 
 const DisplayNumber = wrap(() => {
   const [value] = useRenderProps<{}, number>(Counter);
-  return (
-    <div>
-      Number:
-      <span>{value}</span>
-    </div>
-  );
+  return <div>Number:{value}</div>;
 });
 
 export default DisplayNumber;

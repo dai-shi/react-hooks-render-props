@@ -29,14 +29,8 @@ const ShowNumber = wrap(({ name }) => {
   return (
     <div>
       <h1>Random</h1>
-      <div>
-        name:
-        {name}
-      </div>
-      <div>
-        value:
-        {value}
-      </div>
+      <div>name:{name}</div>
+      <div>value:{value}</div>
       {name === 'a' && <ShowNumber name="c" />}
     </div>
   );
