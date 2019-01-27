@@ -56,8 +56,8 @@ const App = () => (
 );
 ```
 
-Example
--------
+Examples
+--------
 
 The [examples](examples) folder contains working examples.
 You can run one of them with
