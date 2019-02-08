@@ -1,41 +1,40 @@
 import {
   createElement,
-  useState,
-  useRef,
   useEffect,
+  useRef,
+  useState,
 } from 'react';
 
-const wrappers = [];
+let sharedObject = null;
 
 export const useRenderProps = (WrapperComponent, wrapperProps) => {
   const [args, setArgs] = useState([]);
-  const ref = useRef({});
-  if (!ref.current.initialized) {
-    wrappers.push({
-      WrapperComponent,
-      wrapperProps,
-      setArgs,
-    });
-  }
+  const updateFlag = useRef(true);
+  sharedObject = {
+    setArgs,
+    updateFlag,
+    WrapperComponent,
+    wrapperProps,
+  };
   useEffect(() => {
-    ref.current.initialized = true;
-  }, []);
+    updateFlag.current = !updateFlag.current;
+  });
   return args;
 };
 
 export const wrap = FunctionComponent => (props) => {
+  sharedObject = null;
   const element = FunctionComponent(props);
-  const ref = useRef({ wrapper: wrappers.pop() });
   const {
+    setArgs,
+    updateFlag,
     WrapperComponent,
     wrapperProps,
-  } = ref.current.wrapper;
+  } = sharedObject || {};
+  if (!WrapperComponent) return element;
   return createElement(WrapperComponent, wrapperProps, (...args) => {
-    if (!ref.current.processed) {
-      ref.current.wrapper.setArgs(args);
-      ref.current.processed = true;
-    } else {
-      ref.current.processed = false;
+    if (updateFlag.current) {
+      setArgs(args);
     }
     return element;
   });

@@ -1,15 +1,13 @@
 /* eslint-env jest */
 
-import React from 'react';
-import { configure, mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
-import Adapter from 'enzyme-adapter-react-16';
+import React, { StrictMode } from 'react';
+import { render, cleanup } from 'react-testing-library';
 
 import { useRenderProps, wrap } from '../src/index';
 
-configure({ adapter: new Adapter() });
-
 describe('basic spec', () => {
+  afterEach(cleanup);
+
   it('should have a function', () => {
     expect(useRenderProps).toBeDefined();
     expect(wrap).toBeDefined();
@@ -21,8 +19,8 @@ describe('basic spec', () => {
         {children(123)}
       </div>
     );
-    let wrapper1;
-    let wrapper2;
+    let container1;
+    let container2;
     {
       const Component = () => (
         <SetNumber>
@@ -30,9 +28,11 @@ describe('basic spec', () => {
         </SetNumber>
       );
       const App = () => (
-        <Component />
+        <StrictMode>
+          <Component />
+        </StrictMode>
       );
-      wrapper1 = mount(<App />);
+      container1 = render(<App />).container;
     }
     {
       const Component = wrap(() => {
@@ -42,12 +42,14 @@ describe('basic spec', () => {
         );
       });
       const App = () => (
-        <Component />
+        <StrictMode>
+          <Component />
+        </StrictMode>
       );
-      wrapper2 = mount(<App />);
+      container2 = render(<App />).container;
     }
-    expect(wrapper2.html()).toEqual(wrapper1.html());
-    expect(toJson(wrapper1)).toMatchSnapshot();
-    expect(toJson(wrapper2)).toMatchSnapshot();
+    expect(container1.innerHTML).toEqual(container2.innerHTML);
+    expect(container1).toMatchSnapshot();
+    expect(container2).toMatchSnapshot();
   });
 });

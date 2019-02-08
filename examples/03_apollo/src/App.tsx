@@ -14,10 +14,12 @@ const client = new ApolloClient({
 });
 
 const App = () => (
-  <ApolloProvider client={client}>
-    <NewPost />
-    <PostList />
-  </ApolloProvider>
+  <React.StrictMode>
+    <ApolloProvider client={client}>
+      <NewPost />
+      <PostList />
+    </ApolloProvider>
+  </React.StrictMode>
 );
 
 export default App;

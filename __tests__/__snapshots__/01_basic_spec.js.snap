@@ -1,29 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`basic spec should create the same component 1`] = `
-<App>
-  <Component>
-    <SetNumber>
-      <div>
-        <span>
-          123
-        </span>
-      </div>
-    </SetNumber>
-  </Component>
-</App>
+<div>
+  <div>
+    <span>
+      123
+    </span>
+  </div>
+</div>
 `;
 
 exports[`basic spec should create the same component 2`] = `
-<_App>
-  <Component>
-    <SetNumber>
-      <div>
-        <span>
-          123
-        </span>
-      </div>
-    </SetNumber>
-  </Component>
-</_App>
+<div>
+  <div>
+    <span>
+      123
+    </span>
+  </div>
+</div>
 `;

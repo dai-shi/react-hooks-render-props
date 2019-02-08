@@ -1,6 +1,6 @@
 /* eslint-env browser */
 
-import React, { useState, useEffect } from 'react';
+import React, { StrictMode, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 import { useRenderProps, wrap } from 'react-hooks-render-props';
@@ -37,10 +37,12 @@ const ShowNumber = wrap(({ name }) => {
 });
 
 const App = () => (
-  <div>
-    <ShowNumber name="a" />
-    <ShowNumber name="b" />
-  </div>
+  <StrictMode>
+    <div>
+      <ShowNumber name="a" />
+      <ShowNumber name="b" />
+    </div>
+  </StrictMode>
 );
 
 ReactDOM.render(<App />, document.getElementById('app'));

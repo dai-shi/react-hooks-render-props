@@ -11,9 +11,9 @@
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
     "graphql-tools": "^4.0.3",
-    "react": "next",
+    "react": "latest",
     "react-apollo": "^2.2.4",
-    "react-dom": "next",
+    "react-dom": "latest",
     "react-hooks-render-props": "latest",
     "react-scripts": "^2.1.1",
     "typescript": "^3.1.6"

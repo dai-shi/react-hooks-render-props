@@ -7,13 +7,18 @@ react-hooks-render-props
 
 Hacky custom hook to emulate render props with Hooks API
 
-Background
-----------
+Introduction
+------------
 
 React Hooks API is awesome.
-Just wanted to hack a custom hook to emulate
-render props (only function as a child).
-This is an experimental library for fun.
+Some of the libraries may not provide hooks API.
+but just render props (function as a child) API.
+
+To use such libraries, this is to provide a
+hacky custom hook to emulate render props (function as a child).
+
+This is not for production.
+It's only tested against a few small examples.
 
 Install
 -------
@@ -76,7 +81,7 @@ You can also try them in codesandbox.io:
 Limitations
 -----------
 
-Due to its hack implementation:
+Due to its hacky implementation:
 
 - It renders initially without any data.
 - It may not detect the change of inputs to `useRenderProps`.

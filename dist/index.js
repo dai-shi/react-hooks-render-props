@@ -15,7 +15,7 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var wrappers = [];
+var sharedObject = null;
 
 var useRenderProps = function useRenderProps(WrapperComponent, wrapperProps) {
   var _useState = (0, _react.useState)([]),
@@ -23,19 +23,16 @@ var useRenderProps = function useRenderProps(WrapperComponent, wrapperProps) {
       args = _useState2[0],
       setArgs = _useState2[1];
 
-  var ref = (0, _react.useRef)({});
-
-  if (!ref.current.initialized) {
-    wrappers.push({
-      WrapperComponent: WrapperComponent,
-      wrapperProps: wrapperProps,
-      setArgs: setArgs
-    });
-  }
-
+  var updateFlag = (0, _react.useRef)(true);
+  sharedObject = {
+    setArgs: setArgs,
+    updateFlag: updateFlag,
+    WrapperComponent: WrapperComponent,
+    wrapperProps: wrapperProps
+  };
   (0, _react.useEffect)(function () {
-    ref.current.initialized = true;
-  }, []);
+    updateFlag.current = !updateFlag.current;
+  });
   return args;
 };
 
@@ -43,23 +40,23 @@ exports.useRenderProps = useRenderProps;
 
 var wrap = function wrap(FunctionComponent) {
   return function (props) {
+    sharedObject = null;
     var element = FunctionComponent(props);
-    var ref = (0, _react.useRef)({
-      wrapper: wrappers.pop()
-    });
-    var _ref$current$wrapper = ref.current.wrapper,
-        WrapperComponent = _ref$current$wrapper.WrapperComponent,
-        wrapperProps = _ref$current$wrapper.wrapperProps;
+
+    var _ref = sharedObject || {},
+        setArgs = _ref.setArgs,
+        updateFlag = _ref.updateFlag,
+        WrapperComponent = _ref.WrapperComponent,
+        wrapperProps = _ref.wrapperProps;
+
+    if (!WrapperComponent) return element;
     return (0, _react.createElement)(WrapperComponent, wrapperProps, function () {
-      if (!ref.current.processed) {
+      if (updateFlag.current) {
         for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
           args[_key] = arguments[_key];
         }
 
-        ref.current.wrapper.setArgs(args);
-        ref.current.processed = true;
-      } else {
-        ref.current.processed = false;
+        setArgs(args);
       }
 
       return element;
