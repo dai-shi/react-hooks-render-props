@@ -1,7 +1,7 @@
 {
   "name": "react-hooks-render-props",
   "description": "A hacking custom hook to emulate render props (function as a child)",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "author": "Daishi Kato",
   "repository": {
     "type": "git",

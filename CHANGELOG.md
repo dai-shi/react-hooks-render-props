@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [0.2.0] - 2019-02-09
 ### Changed
 - Clean the implementation
 - Update dependencies
