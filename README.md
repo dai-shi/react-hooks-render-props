@@ -11,7 +11,7 @@ Introduction
 ------------
 
 React Hooks API is awesome.
-Some of the libraries may not provide hooks API.
+Some of the libraries may not provide hooks API,
 but just render props (function as a child) API.
 
 To use such libraries, this is to provide a
