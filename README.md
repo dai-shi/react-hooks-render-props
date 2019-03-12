@@ -1,5 +1,4 @@
-react-hooks-render-props
-========================
+# react-hooks-render-props
 
 [![Build Status](https://travis-ci.com/dai-shi/react-hooks-render-props.svg?branch=master)](https://travis-ci.com/dai-shi/react-hooks-render-props)
 [![npm version](https://badge.fury.io/js/react-hooks-render-props.svg)](https://badge.fury.io/js/react-hooks-render-props)
@@ -7,8 +6,7 @@ react-hooks-render-props
 
 Hacky custom hook to emulate render props with Hooks API
 
-Introduction
-------------
+## Introduction
 
 React Hooks API is awesome.
 Some of the libraries may not provide hooks API,
@@ -20,15 +18,13 @@ hacky custom hook to emulate render props (function as a child).
 This is not for production.
 It's only tested against a few small examples.
 
-Install
--------
+## Install
 
 ```bash
 npm install react-hooks-render-props
 ```
 
-Usage
------
+## Usage
 
 ```javascript
 import React from 'react';
@@ -61,8 +57,7 @@ const App = () => (
 );
 ```
 
-Examples
---------
+## Examples
 
 The [examples](examples) folder contains working examples.
 You can run one of them with
@@ -78,8 +73,7 @@ You can also try them in codesandbox.io:
 [02](https://codesandbox.io/s/github/dai-shi/react-hooks-render-props/tree/master/examples/02_typescript)
 [03](https://codesandbox.io/s/github/dai-shi/react-hooks-render-props/tree/master/examples/03_apollo)
 
-Limitations
------------
+## Limitations
 
 Due to its hacky implementation:
 
