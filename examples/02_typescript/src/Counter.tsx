@@ -8,7 +8,7 @@ const Counter: React.SFC<Props> = ({ children }) => {
   const [value, update] = React.useState(0);
   return (
     <div>
-      <span>Count:{value}</span>
+      <span>Count: {value}</span>
       {children(value)}
       <button type="button" onClick={() => update(v => v + 1)}>+1</button>
       <button type="button" onClick={() => update(v => v - 1)}>-1</button>
